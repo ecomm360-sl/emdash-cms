@@ -1,0 +1,17 @@
+services:
+  emdash:
+    build: .
+    ports:
+      - "4321:4321"
+    volumes:
+      - emdash-data:/app/data
+      - emdash-uploads:/app/uploads
+    environment:
+      - HOST=0.0.0.0
+      - PORT=4321
+      - NODE_ENV=production
+    restart: unless-stopped
+
+volumes:
+  emdash-data:
+  emdash-uploads:
